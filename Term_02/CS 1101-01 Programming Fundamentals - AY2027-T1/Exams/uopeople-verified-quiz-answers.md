@@ -198,3 +198,65 @@ All 5/5 confirmed correct. Key reasoning:
 - **Lambda (Q12):** any number of arguments but only ONE expression. Source: Mohbey & Acharya, Functions chapter.
 - **Default argument (Q13):** a parameter given a value with `=` in the `def` (`def f(a, b=10)`); used when the caller omits it.
 - **Shadowing (Q14, Q15):** a local variable with the same name as an outer/global one hides it inside that scope without changing the outer one. Prints go innermost first: `10 20 50`.
+
+
+## Attempt 9 — Course review quiz: full-course Python review (40 q)
+
+**Score: 40/40 — all CONFIRMED CORRECT by user.**
+
+| # | Question (topic) | Answer given | Result |
+|---|---|---|---|
+| 1 | The `*` operator can be used in unpacking to collect extra values. (True/False) | True | CONFIRMED CORRECT |
+| 2 | `my_list[1:-1]` excludes the first and last element. (True/False) | True | CONFIRMED CORRECT |
+| 3 | Correctly creates an empty list | `list = []` | CONFIRMED CORRECT |
+| 4 | Access first element of `t = ('x','y','z')` | `t[0]` | CONFIRMED CORRECT |
+| 5 | Combine two lists | `list1 + list2` | CONFIRMED CORRECT |
+| 6 | Update value of `'x'` in `d = {'x': 5}` | ``d['x'] = 10` `` (option has a stray backtick) | CONFIRMED CORRECT |
+| 7 | Output of `d = {'a':1}; d['b'] = d.get('b', 2); print(d)` | `{'a':1, 'b':2}` | CONFIRMED CORRECT |
+| 8 | Output of `print(list(d.keys()))` for `{'a':1,'b':2}` | `['a','b']` | CONFIRMED CORRECT |
+| 9 | Output of `{1,2}.remove(3)` | KeyError | CONFIRMED CORRECT |
+| 10 | Output of `d['a'] += d['b']` for `{'a':1,'b':2}` | `{'a':3, 'b':2}` | CONFIRMED CORRECT |
+| 11 | Function converting a list of strings to one newline-separated string before writing to a file | `'\n'.join(list)` | CONFIRMED CORRECT |
+| 12 | Combining string and file operations supports: | Data cleaning and analysis | CONFIRMED CORRECT |
+| 13 | The `else` block in exception handling executes only when an exception occurs. (True/False) | False | CONFIRMED CORRECT |
+| 14 | `f"User: {name}, Age: {age}"` represents which concept? | String formatting | CONFIRMED CORRECT |
+| 15 | `raise` is used to define a new function for handling exceptions. (True/False) | False | CONFIRMED CORRECT |
+| 16 | What prevents shadowing effectively? | Using consistent naming conventions | CONFIRMED CORRECT |
+| 17 | Lambda functions can have multiple expressions. (True/False) | False | CONFIRMED CORRECT |
+| 18 | If no local variable is found, which scope does Python search next? (Built-in / Enclosing / Global / File) | Enclosing scope | CONFIRMED CORRECT |
+| 19 | Symbol for variable-length arguments (# / & / * / %) | `*` | CONFIRMED CORRECT |
+| 20 | Global shadowed by local: which takes precedence inside the function? | Local | CONFIRMED CORRECT |
+| 21 | Which operator calculates remainder? | `%` | CONFIRMED CORRECT |
+| 22 | Which operator concatenates strings? | `+` | CONFIRMED CORRECT |
+| 23 | Which is a Boolean value? | `True` | CONFIRMED CORRECT |
+| 24 | `5 ** 2` equals | 25 | CONFIRMED CORRECT |
+| 25 | To display formatted text, we use | `print()` | CONFIRMED CORRECT |
+| 26 | In `def my_method(self, data):`, `self` represents | The instance the method is operating on | CONFIRMED CORRECT |
+| 27 | Term for functions defined inside a class | Methods | CONFIRMED CORRECT |
+| 28 | Why use `itertools.product()`? | To create Cartesian combinations | CONFIRMED CORRECT |
+| 29 | Why are mutable attributes in the class body discouraged? | They become class attributes shared by all instances | CONFIRMED CORRECT |
+| 30 | Keyword to define a class | `class` | CONFIRMED CORRECT |
+| 31 | A while loop checks its condition after executing the body. (options listed False/True) | False | CONFIRMED CORRECT |
+| 32 | Typical effect of `break` in the inner loop of a nested structure | It exits the inner loop only | CONFIRMED CORRECT |
+| 33 | Term for a loop inside another loop | Nested loop | CONFIRMED CORRECT |
+| 34 | What does `break` do in a loop? | It immediately stops the loop | CONFIRMED CORRECT |
+| 35 | Total iterations of two loops with counts m and n = ____ of m and n | product | CONFIRMED CORRECT |
+| 36 | Output of nested if with `num = 9` (`%3`, `%2`) | Odd-Multiple | CONFIRMED CORRECT |
+| 37 | ____ is the best way to avoid too much nesting | combining conditions with and/or | CONFIRMED CORRECT |
+| 38 | Output of `if not (False or False): print("Go") else: print("Stop")` | Go | CONFIRMED CORRECT |
+| 39 | Best check for number NOT between 10 and 20 inclusive | `not (num >= 10 and num <= 20)` | CONFIRMED CORRECT |
+| 40 | AND stops checking once any condition is False. (options listed False/True) | True | CONFIRMED CORRECT |
+
+### Key reasoning / reusable notes
+
+- **Repeat questions:** Q2, Q4, Q10, Q16, Q17, Q19, Q21, Q23, Q25, Q31, Q34, Q37 and Q39 matched earlier confirmed entries (Attempts 1–8), so the bank-first lookup held.
+- **Scope order (Q18):** the assigned Mohbey & Acharya Functions chapter only names local and global scope, but the quiz key follows full LEGB (Local → Enclosing → Global → Built-in). After a local miss the next scope is **Enclosing**. Outside source: Real Python, "Resolving Names in Your Code" (realpython.com/python-scope-legb-rule).
+- **Exception handling (Q13, Q15):** `else` runs only when the `try` block raises NO exception; `finally` always runs. `raise` forces an exception to be thrown; it does not define anything. Source: Mohbey & Acharya, Exception Handling chapter.
+- **`'\n'.join(list)` (Q11):** `join` is a string method called on the separator. `'\n'.join(['a','b'])` → `'a\nb'`. `file.write(list)` raises `TypeError`.
+- **Data cleaning and analysis (Q12):** key answer for "combining string and file operations supports"; the distractors (compression, encryption, "parsing only") were wrong.
+- **Class variables (Q29):** variables assigned in the class body are shared by every instance, so a mutable list there is changed for all objects (verified: appending via one instance showed up in another). Source: Mohbey & Acharya, OOP chapter, "Static Variables".
+- **`self` (Q26) / methods (Q27):** `self` is the instance the method runs on; functions defined inside a class are methods.
+- **`itertools.product` (Q28):** Cartesian product, e.g. `product([1,2],'ab')` → `(1,'a'),(1,'b'),(2,'a'),(2,'b')`.
+- **Nested loops (Q32, Q35):** `break` ends only the nearest enclosing loop; total inner-body executions = outer × inner (3 × 4 = 12).
+- **Short-circuit AND (Q40):** `False and f()` never calls `f()`. Option order was False/True, so read the text, not the position.
+- **Q6 typo:** the correct option is rendered ``d['x'] = 10` `` with a trailing backtick; the other options (`d.update(x==10)`, `d.modify`, `d.set`) are invalid.
